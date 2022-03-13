@@ -28,13 +28,12 @@ int main() {
         if(x%i == 0){
 
             printf("Il numero %d è divisibile per %d\n", x, i);
-        } else {
-            
+
             contatore++;
-        }
+        } 
     }
 
-    if (contatore == x-1) {
+    if (contatore == 0) {
 
         printf("Il numero %d è primo", x);
     }
