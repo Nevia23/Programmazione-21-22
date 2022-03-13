@@ -20,5 +20,22 @@
 
 int main() {
 
+    int x = 63, i;
+    int contatore = 0;
 
+    for (i=2; i<x; i++) {
+
+        if(x%i == 0){
+
+            printf("Il numero %d è divisibile per %d\n", x, i);
+        } else {
+            
+            contatore++;
+        }
+    }
+
+    if (contatore == x-1) {
+
+        printf("Il numero %d è primo", x);
+    }
 }

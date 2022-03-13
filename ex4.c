@@ -28,5 +28,18 @@
 
 int main() {
 
+    int LIMIT=56, i=0;
+    int precedente = 0;
+    int corrente = 1;
+
+    while (i<LIMIT) {
+
+        printf("%d\n", i);
+
+        precedente = corrente;
+        corrente = i;
+        i = precedente + corrente;
+    }
+
 }
 

@@ -17,4 +17,15 @@
 
 int main () {
 
+    int ALTEZZA = 13, i, j;
+
+    for (i=1; i<=ALTEZZA; i++) {
+
+        for (j=1; j<=i; j++) {
+
+            printf("#");
+        }
+        
+        printf("\n");
+    }
 }
