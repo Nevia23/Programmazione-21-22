@@ -15,20 +15,19 @@
 
 int main (void) {
 
-    int ALTEZZA=6, i=1, j=1;
+    int ALTEZZA = 6, i = 1, j = 1;
     int riga, colonna, num_spazi, num_simboli;
 
-    for (riga=1; riga<=ALTEZZA; riga++) {
+    for (riga = 1; riga <= ALTEZZA; riga++) {
 
         num_spazi = riga - 1;
-        num_simboli = ALTEZZA*2 - num_spazi*2 - 1;
+        num_simboli = ALTEZZA * 2 - num_spazi * 2 - 1;
 
-        for(i=0; i<num_spazi; i++) {
+        for (i = 0; i < num_spazi; i++) {
             printf(" ");
         }
 
-        for(i=0; i<num_simboli; i++) {
-
+        for (i =0; i < num_simboli; i++) {
             printf("#");
         }
 
