@@ -12,7 +12,7 @@
  * 
  */
 
-
+int sommaDispariN(int n); //prototipo di funzione
 
 int main (void) {
 
@@ -22,4 +22,27 @@ int main (void) {
 
     printf("Somma dei numeri dispari minori di n: %d\n", sommaDispariN(n));
 
+}
+
+//definizione della funzione
+int sommaDispariN(int n) {
+
+    int i, somma = 0;
+
+    if (n % 2 == 0) {
+
+        for (i = n-1; i > 0; i = i-2) {
+            somma = somma + i;
+        }
+
+        return somma;
+        
+    } else {
+
+        for (i = n-2; i > 0; i = i-2) {
+            somma = somma + i;
+        }
+
+        return somma;
+    }
 }
