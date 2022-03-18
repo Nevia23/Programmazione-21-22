@@ -13,7 +13,7 @@
  * 
  */
 
-int potenza(int base, int esponente);
+int potenza (int base, int esponente); //prototipo di funzione
 
 int main (void) {
 
@@ -23,4 +23,16 @@ int main (void) {
 
     printf("%d\n", potenza(base, esp));
 
+}
+
+int potenza (int base, int esponente) {
+
+    int i, prodotto = 1;
+
+    for (i = 0; i < esponente; i++) {
+
+        prodotto = prodotto * base;
+    }
+
+    return prodotto;
 }
