@@ -14,15 +14,13 @@
  * 
 */
 
-void inverti(int *A, int dim);
-void stampa_array(int *A, int dim);
-
+void inverti(int *A, int dim);      //prototipo di funzione
+void stampa_array(int *A, int dim); //prototipo di funzione
 
 int main(void)
 {
     const int dim = 10;
     int A[] = {1,2,3,4,5,6,7,8,9,10};
-    int tmp; 
     
     inverti(A, dim);
     stampa_array(A, dim);
@@ -30,12 +28,25 @@ int main(void)
     return 0;
 }
 
-
 void stampa_array(int *A, int dim) {
 
+    int i;
+
     printf("[");
-    for (int i = 0; i < dim; i+=1)
+    for (i = 0; i < dim; i+=1)
         printf(" %d",A[i]);
     printf(" ]\n");
 
+}
+
+void inverti(int *A, int dim) {
+
+    int tmp, i;
+
+    for (i = 0; i < dim / 2; i += 1) {
+
+        tmp = A[i];
+        A[i] = A[dim - 1 - i];
+        A[dim - 1 - i] = tmp;
+    }
 }
