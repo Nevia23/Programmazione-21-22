@@ -81,11 +81,11 @@ int match (char* N, char* T, unsigned int N_len, unsigned int T_len) {
 
     while (i < T_len) {
 
-        if(*(N + i) == *(T + i)) {
-            i += 1;
-        } else {
+        if(N[i] != T[i]) {
             return 0;
         }
+        
+        i += 1;
     }
 
     return 1;
