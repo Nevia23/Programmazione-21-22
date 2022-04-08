@@ -10,6 +10,8 @@
 
 unsigned int len (char* N);
 
+int match (char* base, char* T, unsigned int N_len, unsigned int T_len);
+
 int main(){
 
     /* Nota:
@@ -24,8 +26,22 @@ int main(){
     scanf("%255s", T);
 
     int N_len = len(N), T_len = len(T);
-    int i, j = 0;
+    int i;
+    int punto_match = -1;
 
+    for (i = 0; i < N_len - T_len + 1 && punto_match == -1; i += 1) {        
+        if (match (N + i, T, N_len - i, T_len) == 1) {
+            punto_match = i;
+        }
+    }
+
+    if (punto_match != -1) {
+        printf("Match found at position %d\n", punto_match);
+    } else {
+        printf("No match found");
+    }
+
+    /*
     for (i = 0; i < N_len && j < T_len; i += 1) {
 
         if (N[i] == T[j]) {
@@ -41,7 +57,7 @@ int main(){
         printf("Match found at position %d\n", match);
     } else {
         printf("No match found\n");
-    }
+    }*/
 }
 
 unsigned int len (char* N) {
@@ -53,4 +69,24 @@ unsigned int len (char* N) {
     }
 
     return contatore;
+}
+
+int match (char* N, char* T, unsigned int N_len, unsigned int T_len) {
+
+    int i = 0;
+
+    if (N_len < T_len) {
+        return 0;
+    }
+
+    while (i < T_len) {
+
+        if(*(N + i) == *(T + i)) {
+            i += 1;
+        } else {
+            return 0;
+        }
+    }
+
+    return 1;
 }
