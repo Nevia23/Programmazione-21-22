@@ -25,9 +25,21 @@
 
 
 void incrementa_array(int* A, int length, int x, int pos){
+
+    int i = 0, y = 0;
     
-    // inserite qua il vostro codice
+    while (*(A + i) != y) {
+        i += 1;
+    }
+
+    while (i >= pos) {
+        *(A + i + 1) = *(A + i);
+        i -= 1;
+    }
+
+    *(A + pos) = x;
     
+    return;
 }
 
 int main()
@@ -35,13 +47,16 @@ int main()
     int length = 10;
     int A[10] = {1,8,4,7,12,3,2,0,0,0}; 
     int x = 5;
-    int pos = 4;
+    int pos = 4, i;
     
-    incrementa_array(A,length,x,pos);
+    incrementa_array(A, length, x, pos);
     
     printf("[");
-    for (int i = 0; (i<length) && (A[i]!=0); i+=1)
-        printf(" %d",A[i]);
+
+    for (i = 0; (i < length) && (A[i]!= 0); i += 1) {
+        printf(" %d", A[i]);
+    }
+
     printf(" ]\n");
 
     return 0;
