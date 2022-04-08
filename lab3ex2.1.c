@@ -13,15 +13,33 @@
 * printf("Stringa concatenata: %s",S1);
 */
 
+void concatena (char* S1, char* S2);
 
 int main (void) {
 
     char S1[50] = "laboratorio",
          S2[20] = " programmazione";
 
-    //Inserite il vostro codice qua
+    concatena (S1, S2);
 
     printf("Stringa concatenata: %s",S1);
 
     return 0;
+}
+
+void concatena (char* S1, char* S2) {
+
+    int i = 0, j;
+
+    while (*(S1 + i) != '\0') {
+        i += 1;
+    }
+
+    for (j = 0; *(S2 + j) != '\0'; j+=1) {
+        *(S1 + i + j) = *(S2 + j);
+    }
+
+    *(S1 + i + j) = '\0';
+
+    return;
 }
