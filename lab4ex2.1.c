@@ -23,8 +23,9 @@
 
 #include <stdio.h>
 
+void scambiaVar (int *A, int *B);
 
-// inserite qua la definizione di scambiaArray
+void scambiaArray (int *A, int *B, int *dimA, int *dimB);
 
 int main()
 {
@@ -32,7 +33,7 @@ int main()
     int array1[5] = {1,1,1};
     int array2[5] = {2,2,2,2,2};
     
-	// inserite qua la chiamata a scambiaArray()
+	scambiaArray (array1, array2, &size_array1, &size_array2);
     
 	for (int i = 0; i < size_array1; i += 1)
  		printf("[%d] -> A1: %d\n", i, array1[i]);
@@ -40,4 +41,30 @@ int main()
  		printf("[%d] -> A2: %d\n", i, array2[i]);
 
     return 0;
+}
+
+void scambiaArray (int *A, int *B, int *dimA, int *dimB) {
+
+	int max_size, i;
+
+	if (*dimA <= *dimB) {
+		max_size = *dimB;
+	} else {
+		max_size = *dimA;
+	}
+
+	for (i = 0; i < max_size; i += 1) {
+		scambiaVar (A + i, B + i);
+	}
+
+	scambiaVar (dimA, dimB);
+
+}
+
+void scambiaVar (int *A, int *B) {
+
+	int temp = *A;
+
+	*A = *B;
+	*B = temp;
 }
