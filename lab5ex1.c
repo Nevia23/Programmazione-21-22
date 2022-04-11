@@ -13,6 +13,7 @@
 
  */
 
+int lunghezza (char *X);
 
 int main(void) {
 
@@ -20,12 +21,16 @@ int main(void) {
     scanf("%s", s);
     int lunghezza_s;
 
-    /* 
-     * Inserite qua la chiamata alla vostra funzione 
-     * che calcola la lunghezza della stringa salvando
-     * il valore restituito in lunghezza_s. 
-     */
-    //lunghezza_s = 
+    lunghezza_s = lunghezza (s);
     printf("%d\n", lunghezza_s);
 
+}
+
+int lunghezza (char *X) {
+
+    if (*X == '\0') {
+      return 0;
+    } else {
+      return 1 + lunghezza (X + 1);
+    }
 }
