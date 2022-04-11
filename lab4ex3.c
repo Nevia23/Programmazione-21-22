@@ -19,4 +19,31 @@
 
 int main () {
 
+    int A[] = {2,5,6,2,7,6,6,7,7,7}, lenght = 10;
+    int freq[10] = {0};
+    int counter, i, j;
+
+    for (i = 0; i < lenght; i += 1) {
+        
+        counter = 1;
+        
+        if (freq[i] != -1) {
+
+            for (j = i + 1; j < lenght; j += 1) {
+
+                if (A[j] == A[i]) {
+                    counter += 1;
+                    freq[j] = -1;
+                }
+            }
+            
+            freq[i] = counter;
+        }
+    }
+
+    for (i = 0; i < lenght; i += 1) {
+        if (freq[i] != -1) {
+            printf("il valore %d appare %d volte\n", A[i], freq[i]);  
+        }
+    }
 }

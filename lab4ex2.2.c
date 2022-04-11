@@ -25,7 +25,19 @@ void leggi_array(int * array, unsigned int dim){
 }
 
 void calcola_somma(int *matrix, unsigned int righe, unsigned int colonne, int* somma){
-    // vostro codice qui
+    
+    int i, j;
+
+    for (i = 0; i < colonne; i += 1) {
+
+        *somma = 0;
+        
+        for (j = 0; j < righe; j += 1) {
+            *somma = *somma + *(matrix + j*colonne + i);
+        }
+
+        somma += 1;
+    }
 }
 
 int main(){
