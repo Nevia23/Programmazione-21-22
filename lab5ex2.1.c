@@ -31,12 +31,12 @@ int main(void) {
 int palindroma (char *X, int dim) {
     
     if (dim <= 0) {     
-        return 1;
+       return 1;
     }
 
     if (*X != *(X + dim - 1)) {
         return 0;
     } else {
-        palindroma (X + 1, dim - 2);
+        return palindroma (X + 1, dim - 2);
     }   
 }

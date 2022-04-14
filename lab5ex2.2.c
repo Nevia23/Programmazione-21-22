@@ -11,7 +11,8 @@
 * a ripetersi ciclicamente. La congettura afferma che tutti i numeri interi
 * positivi raggiungono ad un certo punto il valore n = 1.
 *
-* Creare la funzione ricorsiva SequenzaCollatz che stampa la sequenza di numeri di Collatz e restituisce la quantità di numeri stampati.
+* Creare la funzione ricorsiva SequenzaCollatz che stampa la sequenza di 
+* numeri di Collatz e restituisce la quantità di numeri stampati.
 *
 * void SequenzaCollatz(int n)
 *
@@ -21,6 +22,32 @@
 
 #include <stdio.h>
 
+void SequenzaCollatz ();
+
 int main (void) {
 
+    int number;
+
+    scanf ("%d", &number);
+
+    SequenzaCollatz (number);
+}
+
+void SequenzaCollatz (int n) {
+
+    if (n == 1) {
+
+        printf ("%i\n", n);
+        return;
+
+    } else {
+
+        printf ("%i ", n);
+
+        if (n % 2 == 0) {
+            return SequenzaCollatz (n / 2);
+        } else {
+            return SequenzaCollatz (n*3 + 1);
+        }
+    }
 }
