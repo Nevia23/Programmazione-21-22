@@ -22,7 +22,7 @@
 
 #include <stdio.h>
 
-void SequenzaCollatz ();
+void SequenzaCollatz (int n);
 
 int main (void) {
 
