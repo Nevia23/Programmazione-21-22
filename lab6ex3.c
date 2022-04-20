@@ -19,10 +19,38 @@
 
 void combina_array(int *X, int dim_X, int *Y, int dim_Y, int *Ord) {
     /* 
-        PRE: X, di dimensione dim_X ed Y, di dimensione dim_Y, sono ordinati in modo crescente; Ord è di dimensione dim_X+dim_Y
-        POST: Ord contiene gli elementi di X e Y, Ord è ordinato in modo crescente  
+    PRE: X, di dimensione dim_X ed Y, di dimensione dim_Y, sono ordinati in modo crescente; Ord è di dimensione dim_X+dim_Y
+    POST: Ord contiene gli elementi di X e Y, Ord è ordinato in modo crescente  
     */
- 
+
+   int i = 0;
+
+   if (dim_X == 0 && dim_Y != 0) {
+       while (dim_Y != 0) {
+           *(Ord + i) = *(Y + i);
+           i += 1;
+           dim_Y -= 1;
+       }
+       return;
+   }
+
+   if (dim_Y == 0 && dim_X != 0) {
+       while (dim_X != 0) {
+           *(Ord + i) = *(X + i);
+           i += 1;
+           dim_Y -= 1;
+       }
+       return;
+   }
+
+   if (*X <= *Y) {
+       *Ord = *X;
+       return combina_array (X + 1, dim_X - 1, Y, dim_Y, Ord + 1);
+   }
+   if (*Y < *X) {
+       *Ord = *Y;
+       return combina_array (X, dim_X, Y + 1, dim_Y - 1, Ord + 1);
+   }    
 }
 
 int main(void) {
