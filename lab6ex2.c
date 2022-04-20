@@ -27,6 +27,8 @@
  * {1,0,X,0,0}
  */
 
+int mossa (int righe, int colonne, int campo[][5], int x, int y);
+
 int main(void) {
 
     int campo[5][5]={
@@ -45,4 +47,24 @@ int main(void) {
     } else {
         printf("Non esiste un percorso da %d,%d alla riga 0\n", x, y);
     } 
+}
+
+int mossa (int righe, int colonne, int campo[][5], int a, int b) {
+
+    if (a == 0 && campo[a][b] == 1) {   //percorso trovato
+        return 1;
+    }
+    if (campo[a - 1][b] == 0 && campo[a - 1][b + 1] == 0) { //percorso non trovato
+        return 0;
+    }
+    
+    if (campo[a - 1][b] == 1) {
+        return mossa (righe, colonne, campo, a - 1, b);
+    }
+    if (campo[a - 1][b + 1] == 1) {
+        return mossa (righe, colonne, campo, a - 1, b + 1);
+    }
+
+    return 0;
+    
 }
