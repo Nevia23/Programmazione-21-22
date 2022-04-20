@@ -23,7 +23,6 @@
 
 int confronta_stringhe(char *s1, char *s2); 
 
-
 int main(void) {
 
     char a[50];
@@ -33,4 +32,19 @@ int main(void) {
 
     printf("%s %c %s\n", a, 61+confronta_stringhe(a, b), b); //valori numerici dei caratteri: 60(<), 61(=), 62(>)
     
+}
+
+int confronta_stringhe(char *s1, char *s2) {
+
+    if (*s1 == '\0' && *s2 == '\0') {
+      return 0;
+    }
+    if (*s1 == '\0' || *s2 > *s1) {
+      return -1;
+    }
+    if (*s2 == '\0' || *s1 > *s2) {
+      return 1;
+    }
+
+    return confronta_stringhe (s1 + 1, s2 + 1);
 }
